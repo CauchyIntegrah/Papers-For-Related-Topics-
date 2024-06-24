@@ -1,17 +1,22 @@
-name: pdf
+name: Compile PDF
+
 on: [push]
 
-jobs: 
-  pdf: 
-    runs-on: "ubuntu-latest"
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
     steps:
-      - name: Github Action for LaTeX
-      - uses: xu-cheng/latex-action@3.2.0
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup LaTeX
+        uses: xu-cheng/latex-action@3.2.0
         with:
-          root_file: |
-            main.tex
-      - name: listfiles
-      - run: ls
+          root_file: main.tex
+      
+      - name: List files
+        run: ls
+
             
             
   
